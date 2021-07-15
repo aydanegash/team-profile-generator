@@ -70,18 +70,19 @@ function addNew() {
                 
         let employeeContainer = `
         <div class="container">
-          <div class="row">
-              <div class="col s3 m3">
-                  <div class="card #b39ddb deep-purple lighten-3">
+          <div class="col">
+              <div class="row" style="padding-top: 40px;">
+                  <div class="card #fff3e0 orange lighten-5">
                       <div class="card-content black-text">
-                          <span class="card-title"><strong>${employee[i].role}</strong></span>
-                              <ul class="title">
-                                  <li>Name: ${employee[i].name}</li>
-                                  <li>Email: ${employee[i].email}</li>
-                                  <li>ID: ${employee[i].id}</li>
-                                 <li> ${employee[i].role === "Engineer" ? `Github: ${employee[i].github}` : ""}
-                                  ${employee[i].role === "Intern" ? `School: ${employee[i].school}` : ""}
-                                  ${employee[i].role === "Manager" ? `Office Number: ${employee[i].officeNumber}` : ""} </li>
+                          <span class="card-title"><strong><h3>${employee[i].name}</h3></strong></span>
+                              <ul class="title" style="font-size: large;">
+                                  <li><strong>Name:</strong> ${employee[i].role}</li>
+                                  <li><strong>Email:</strong> ${employee[i].id}</li>
+                                  <li><strong>ID:</strong> ${employee[i].email}</li>
+                                 <li> 
+                                 ${employee[i].role === "Intern" ? `School: ${employee[i].school}` : ""}
+                                 ${employee[i].role === "Engineer" ? `Github: ${employee[i].github}` : ""}
+                                 ${employee[i].role === "Manager" ? `Office Number: ${employee[i].officeNumber}` : ""} </li>
                                 </ul>
                       </div>
                   </div>
@@ -104,14 +105,13 @@ function addNew() {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     
         <title>Team Profile</title>
     </head>  
-    <body>
+    <body style="background-color: #ffcc80;">
         <nav>
-            <div class="nav-wrapper #e65100 orange darken-4">
+            <div class="nav-wrapper ##ffa726 orange lighten-1" style="padding:150 px;">
                 <a href="#" class="brand-logo center">Team Profile!!!</a>
             </div>
         </nav>`;
