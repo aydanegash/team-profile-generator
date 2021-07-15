@@ -121,8 +121,14 @@ function addNew() {
       }
     });
   }
-  
-
+  console.log("                                                    ");
+  console.log("                                                    ");
+  console.log("----------------------------------------------------");
+  console.log("       Welcome to the Team Profile Generator!       ");
+  console.log("   Answer the prompts to create your team profile   ");
+  console.log("----------------------------------------------------");
+  console.log("                                                    ");
+  console.log("                                                    ");
   addNew();
   teamBuild();
  
