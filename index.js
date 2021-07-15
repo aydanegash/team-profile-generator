@@ -9,8 +9,6 @@ const fs = require("fs");
 const employee = [];
 
 
-
-
 function addNew() {
     const newEmployeeQs = inquirer
       .prompt([
@@ -34,49 +32,46 @@ function addNew() {
         }
       ])
 
-    
+      
 
     .then(function ({ name, role, id, email }) {
         let roleQuestion = "";
         let roleInfo = "";
-        if (role === "Engineer") {
-          roleQuestion = "What is the engineer's GitHub username?";
-          roleInfo = "github";
-        } else if (role === "Intern") {
-          roleQuestion = "Which school did the intern go to?";
-          roleInfo = "school";
+        if (role === "Intern") {
+            roleQuestion = "Which school did the intern go to?";
+            roleInfo = "school";
+        } else if (role === "Engineer") {
+            roleQuestion = "What is the engineer's GitHub username?";
+            roleInfo = "github";
         } else {
           roleQuestion = "What is the manager's office number?";
           roleInfo = "officeNumber";
         }
-        inquirer
+    inquirer
           .prompt([
             {
-                name: roleInfo,
-                message: roleQuestion,
-              
+              name: roleInfo,
+              message: roleQuestion, 
             },
             {
+              name: "addAnother",
               type: "confirm",
-              name: "addNew",
               message: "Would you like to add another employee?",
-              default: false,
             },
-          ])
-          .then(function (response) {
-            employee.push({ name, role, id, email, ...response });
-            if (response.addNew) {
+        ])
+        .then(function (response) {
+            employee.push({ role, name, id, email, ...response });
+            if (response.addAnother) {
               addNew();
             } else {
               let roleQuestion = "";
-              // console.log(employee);
-              // create for loop over employee array
               for (var i = 0; i < employee.length; i++) {
                 console.log(employee[i]);
-                let employeeCard = `
-                <div class="container">
+                
+        let employeeContainer = `
+        <div class="container">
           <div class="row">
-              <div class="col s12 m6">
+              <div class="col s3 m3">
                   <div class="card #b39ddb deep-purple lighten-3">
                       <div class="card-content black-text">
                           <span class="card-title"><strong>${employee[i].role}</strong></span>
@@ -84,25 +79,23 @@ function addNew() {
                                   <li>Name: ${employee[i].name}</li>
                                   <li>Email: ${employee[i].email}</li>
                                   <li>ID: ${employee[i].id}</li>
-                                 <li> ${employee[i].title === "Engineer" ? `Github: ${employee[i].github}` : ""}
-                                  ${employee[i].title === "Intern" ? `School: ${employee[i].school}` : ""}
-                                  ${employee[i].title === "Manager" ? `Office Number: ${employee[i].officeNumber}` : ""} </li>
+                                 <li> ${employee[i].role === "Engineer" ? `Github: ${employee[i].github}` : ""}
+                                  ${employee[i].role === "Intern" ? `School: ${employee[i].school}` : ""}
+                                  ${employee[i].role === "Manager" ? `Office Number: ${employee[i].officeNumber}` : ""} </li>
                                 </ul>
                       </div>
                   </div>
               </div>
           </div>
       </div>`;
-                fs.appendFile("./team.html", employeeCard, function (err) {
-                  if (err) {
-                    return reject(err);
-                  }
-  
+    fs.appendFile("./team-profiles.html", employeeContainer, function (err) {
+        if (err) {
+            return reject(err);}
                 });
               }
             }
-          });
-      });
+        });
+    });
   }
   function teamBuild() {
     const html = `<!DOCTYPE html>
@@ -114,13 +107,12 @@ function addNew() {
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     
-        <title>team-profile-generator</title>
-    </head>
-    
+        <title>Team Profile</title>
+    </head>  
     <body>
         <nav>
-            <div class="nav-wrapper #311b92 deep-purple darken-4">
-                <a href="#" class="brand-logo center">Team Profile</a>
+            <div class="nav-wrapper #e65100 orange darken-4">
+                <a href="#" class="brand-logo center">Team Profile!!!</a>
             </div>
         </nav>`;
     fs.writeFile("./team-profiles.html", html, function (err) {
