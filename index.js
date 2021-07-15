@@ -81,7 +81,7 @@ function addNew() {
                                   <li><strong>ID:</strong> ${employee[i].email}</li>
                                  <li> 
                                  ${employee[i].role === "Intern" ? `School: ${employee[i].school}` : ""}
-                                 ${employee[i].role === "Engineer" ? `Github: ${employee[i].github}` : ""}
+                                 ${employee[i].role === "Engineer" ? `Github: <a href="github.com/${employee[i].github}">${employee[i].github}</a>`: ""}
                                  ${employee[i].role === "Manager" ? `Office Number: ${employee[i].officeNumber}` : ""} </li>
                                 </ul>
                       </div>
