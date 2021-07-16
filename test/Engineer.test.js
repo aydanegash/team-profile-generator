@@ -16,11 +16,6 @@ test("Can get email via getEmail()", () => {
     const e = new Engineer("Alice", 1, testValue);
     expect(e.getEmail()).toBe(testValue);
   });
-// test("Can get gitub via getGitHub()", () => {
-//     const testValue = "gitHub";
-//     const e = new Engineer("Alice", 1, "test@test.com", testValue);
-//     expect(e.getGitHub()).toBe(testValue);
-//   });
 test('getRole() should return "Engineer"', () => {
     const testValue = "Engineer";
     const e = new Engineer("Alice", 1, "test@test.com", "gitHub", testValue);

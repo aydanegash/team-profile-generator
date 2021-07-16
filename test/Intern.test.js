@@ -12,11 +12,6 @@ test("Can get id via getId()", () => {
     const e = new Intern("Alice", testValue);
     expect(e.getId()).toBe(testValue);
   });
-//   test("Can get email via getEmail()", () => {
-//     const testValue = "test@test.com";
-//     const e = new Intern("Alice", 1, testValue);
-//     expect(e.getEmail()).toBe(testValue);
-//   });
 test('getRole() should return "Intern"', () => {
     const testValue = "Intern";
     const e = new Intern("Alice", 1, "test@test.com", "School", testValue);
